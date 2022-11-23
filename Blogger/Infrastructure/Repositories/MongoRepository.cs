@@ -28,6 +28,18 @@ namespace Infrastructure.Repositories
 
         public Post Add(Post post)
         {
+            int lastId = _mongoPosts.AsQueryable().ToList().Last().Id;
+            int id = lastId+1;
+            for (int i = lastId; i < _mongoPosts.AsQueryable().Count(); i++)
+            {
+                bool located = _mongoPosts.AsQueryable().ToList().FirstOrDefault(x => x.Id == i) == null ? false : true;
+                if (!located)
+                {
+                    id = i;
+                    break;
+                }
+            }
+            post.Id = id;
             _mongoPosts.InsertOneAsync(post);
             return post;
         }

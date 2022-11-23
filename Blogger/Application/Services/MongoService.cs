@@ -39,10 +39,8 @@ namespace Application.Services
                 throw new Exception("Post can not have an empty title");
             }
             var post = _mapper.Map<Post>(newpost);
-            // lastindex 
-            post.Id = 0+1;
-            _mongoRepository.Add(post);
-            return _mapper.Map<PostDto>(post);
+            //_mongoRepository.Add(post);
+            return _mapper.Map<PostDto>(_mongoRepository.Add(post));
         }
 
         public async void UpdatePost(UpdatePostDto updatePost)
