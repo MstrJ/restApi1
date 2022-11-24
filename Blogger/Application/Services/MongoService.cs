@@ -1,8 +1,12 @@
 ﻿using Application.Dto;
 using Application.Interfaces;
 using AutoMapper;
+using Confluent.Kafka;
 using Domain.Entities;
 using Domain.Interfaces;
+using Microsoft.Extensions.Configuration.CommandLine;
+using Newtonsoft;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +33,7 @@ namespace Application.Services
 
         public async Task<PostDto> GetPostById(int id)
         {
-            Post post  = await _mongoRepository.GetById(id);
+            Post post = await _mongoRepository.GetById(id);
             return _mapper.Map<PostDto>(post);
         }
         public PostDto AddNewPost(CreatePostDto newpost)
@@ -39,8 +43,8 @@ namespace Application.Services
                 throw new Exception("Post can not have an empty title");
             }
             var post = _mapper.Map<Post>(newpost);
-            //_mongoRepository.Add(post);
-            return _mapper.Map<PostDto>(_mongoRepository.Add(post));
+            post = _mongoRepository.Add(post);
+            return _mapper.Map<PostDto>(post);
         }
 
         public async void UpdatePost(UpdatePostDto updatePost)
@@ -54,6 +58,26 @@ namespace Application.Services
         {
             var post = await _mongoRepository.GetById(id);
             _mongoRepository.Delete(post);
+        }
+
+
+        public async Task KafkaProducer(PostDto post)
+
+        {
+            var serializePost = JsonConvert.SerializeObject(post);
+            var config = new ProducerConfig
+            {
+                //BootstrapServers = "host.docker.internal:9092"
+                BootstrapServers = "localhost:9092"
+   
+            };
+            using (var producer = new ProducerBuilder<Null, string>(config).Build())
+            {
+                var result =await producer.ProduceAsync("addedPosts", new Message<Null, string> { Value = serializePost },CancellationToken.None);
+                //await Task.Run(() => result);
+                //List<Task> tasks = new List<Task> { result };
+                //await Task.WhenAll(tasks);
+            }
         }
     }
 }

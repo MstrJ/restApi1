@@ -39,8 +39,8 @@ namespace Application.Services
                 throw new Exception("Post can not have an empty title");
             }
             var post = _mapper.Map<Post>(newpost);
-            _postRepository.Add(post);
-            return _mapper.Map<PostDto>(post);
+
+            return _mapper.Map<PostDto>(_postRepository.Add(post));
         }
 
         public async void UpdatePost(UpdatePostDto updatePost)
@@ -54,6 +54,11 @@ namespace Application.Services
         {
             var post = await _postRepository.GetById(id);
             _postRepository.Delete(post);
+        }
+
+        public Task KafkaProducer(PostDto post)
+        {
+            throw new NotImplementedException();
         }
     }
 }

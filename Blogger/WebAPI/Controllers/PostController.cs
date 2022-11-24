@@ -1,11 +1,17 @@
 ﻿using Application.Dto;
 using Application.Interfaces;
+using Confluent.Kafka;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Text.Json.Serialization;
+using Newtonsoft;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace WebAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class PostController : ControllerBase
@@ -38,13 +44,16 @@ namespace WebAPI.Controllers
 
         [SwaggerOperation(Summary ="Create a new post")]
         [HttpPost]
-        public IActionResult Create(CreatePostDto newPost)
+        public async Task<IActionResult> Create(CreatePostDto newPost)
         {
             if(newPost.Title.Equals("string") || newPost.Content.Equals("string"))
             {
                 return BadRequest();
             }
             var post = _postService.AddNewPost(newPost);
+
+            await _postService.KafkaProducer(post);
+
             return Created($"api/posts/{post.Id}",post);
         }
 

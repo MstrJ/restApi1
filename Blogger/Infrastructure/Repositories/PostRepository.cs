@@ -31,14 +31,29 @@ namespace Infrastructure.Repositories
         }
         public Post Add(Post post)
         {
-            //int lastId = _posts.Count() == _postsCount-1 ? 1 : _posts.Last().Id + 1;
-            //int lastId = _posts.Last().Id + 1;
-            int lastId = _postsCount+=1;
-            post.Id = lastId;
+            int lastId = _posts.Last().Id;
+            int id = lastId + 1;
+            for (int i = lastId; i < _posts.Count(); i++)
+            {
+                bool located = _posts.AsQueryable().ToList().FirstOrDefault(x => x.Id == i) == null ? false : true;
+                if (!located)
+                {
+                    id = i;
+                    break;
+                }
+            }
+            post.Id = id;
             post.Created = DateTime.UtcNow;
             _posts.Add(post);
-            _postsCount += 1;
             return post;
+
+
+            //int lastId = _postsCount+=1;
+            //post.Id = lastId;
+            //post.Created = DateTime.UtcNow;
+            //_posts.Add(post);
+            //_postsCount += 1;
+            //return post;
         }
         public void Update(Post post)
         {

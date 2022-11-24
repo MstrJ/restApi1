@@ -40,6 +40,7 @@ namespace Infrastructure.Repositories
                 }
             }
             post.Id = id;
+            post.Created = DateTime.UtcNow;
             _mongoPosts.InsertOneAsync(post);
             return post;
         }

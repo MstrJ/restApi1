@@ -18,5 +18,7 @@ namespace Application.Interfaces
         void UpdatePost(UpdatePostDto updatePost);
 
         void DeletePost(int id);
+
+        public Task KafkaProducer(PostDto post);
     }
 }
