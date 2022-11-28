@@ -15,19 +15,26 @@
     - 27017:27017
     
   zookeeper:
-    image: wurstmeister/zookeeper
+    # image: confluentinc/cp-zookeeper:latest
+    image: wurstmeister/zookeeper:latest
     container_name: zookeeper
     ports:
       - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
   kafka:
-    image: wurstmeister/kafka
+    # image: confluentinc/cp-kafka:latest
+    image: wurstmeister/kafka:latest
     container_name: kafka 
     ports:
-      - "9092:9092"
+      - "9094:9094"
     environment:
       KAFKA_ADVERTISED_HOST_NAME: localhost
+      # KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1:9092
+      KAFKA_CREATE_TOPICS: "addedPosts"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      # KAFKA_ADVERTISED_LISTENERS: INSIDE://:9092,OUTSIDE://localhost:9094
-      # KAFKA_LISTENERS: INSIDE://:9092,OUTSIDE://:9094
-      # KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
-      # KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9092,OUTSIDE://localhost:9094
+      KAFKA_LISTENERS: INSIDE://kafka:9092,OUTSIDE://:9094
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE

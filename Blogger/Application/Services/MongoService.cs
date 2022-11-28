@@ -64,20 +64,21 @@ namespace Application.Services
         public async Task KafkaProducer(PostDto post)
 
         {
-            var serializePost = JsonConvert.SerializeObject(post);
+
+            string v = JsonConvert.SerializeObject(post);
+            var serializePost = v;
             var config = new ProducerConfig
             {
                 //BootstrapServers = "host.docker.internal:9092"
-                BootstrapServers = "localhost:9092"
-   
+                BootstrapServers = "kafka:9092"
+
             };
-            using (var producer = new ProducerBuilder<Null, string>(config).Build())
-            {
-                var result =await producer.ProduceAsync("addedPosts", new Message<Null, string> { Value = serializePost },CancellationToken.None);
-                //await Task.Run(() => result);
-                //List<Task> tasks = new List<Task> { result };
-                //await Task.WhenAll(tasks);
-            }
+
+            using var producer = new ProducerBuilder<Null, string>(config).Build();
+            var result = await producer.ProduceAsync("addedPosts", new Message<Null, string> { Value = serializePost });
+            //await Task.Run(() => result);
+            //List<Task> tasks = new List<Task> { result };
+            //await Task.WhenAll(tasks);
         }
     }
 }
