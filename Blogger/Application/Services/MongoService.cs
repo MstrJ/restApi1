@@ -70,12 +70,14 @@ namespace Application.Services
             var config = new ProducerConfig
             {
                 //BootstrapServers = "host.docker.internal:9092"
-                BootstrapServers = "kafka:9092"
+                BootstrapServers = "kafka:9092",
+                ClientId = "rdkafka"
 
             };
 
             using var producer = new ProducerBuilder<Null, string>(config).Build();
             var result = await producer.ProduceAsync("addedPosts", new Message<Null, string> { Value = serializePost });
+
             //await Task.Run(() => result);
             //List<Task> tasks = new List<Task> { result };
             //await Task.WhenAll(tasks);
