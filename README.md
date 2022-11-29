@@ -3,11 +3,13 @@
 
 ## Project uses: 
 
-- .Net 6
-- ASP.NET Core Web API
-- Docker
-- MongoDB
-- Kafka
+- [.Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+- [ASP.NET Core Web API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio)
+- [Docker](https://www.docker.com/)
+- [Ubuntu](https://ubuntu.com/)
+- [MongoDB](https://www.mongodb.com/home)
+- [Kafka](https://kafka.apache.org/)
+
 
 ## Helpful programmes: 
     
