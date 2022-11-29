@@ -12,7 +12,8 @@
 
 
 ## Helpful programmes: 
-    
+
+- MongoDBCompass (neccesary)
 - Postman
 - Conduktor
 
