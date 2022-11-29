@@ -26,3 +26,15 @@
 - [HttpClient API](https://github.com/MstrJ/HttpClient-restApi1)
 - [Kafka Consumer ASP.NET Core Web API](https://github.com/MstrJ/KafkaConsumerAPI)
 - [Kafka Consumer Console](https://github.com/MstrJ/KafkaConsumerConsole)
+
+
+# Blogger
+
+|URL   |BODY   | METHOD   |
+| ------------ | ------------ | ------------ |
+| /api/Post  | - | GET  |
+| /api/Post/{id}  | id  | GET  |
+| /api/Post/  |  title, content |  POST |
+| /api/Post  |  id, content |  PUT |
+| /api/Post/{id}  |  id |  DELETE |
+
