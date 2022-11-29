@@ -6,14 +6,14 @@
 - [.Net 6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 - [ASP.NET Core Web API](https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-web-api?view=aspnetcore-7.0&tabs=visual-studio)
 - [Docker](https://www.docker.com/)
-- [Ubuntu](https://ubuntu.com/)
 - [MongoDB](https://www.mongodb.com/home)
 - [Kafka](https://kafka.apache.org/)
 
 
 ## Helpful programmes: 
 
-- MongoDBCompass (neccesary)
+- [MongoDBCompass](https://www.mongodb.com/try/download/compass) (neccesary)
+- [Ubuntu](https://ubuntu.com/) (neccesary)
 - Postman
 - Conduktor
 
