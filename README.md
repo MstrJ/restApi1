@@ -14,7 +14,7 @@
 - Postman
 - Conduktor
 
-## Project uses: 
+## Project presents: 
 
 |URL   |BODY   | METHOD   |
 | ------------ | ------------ | ------------ |
