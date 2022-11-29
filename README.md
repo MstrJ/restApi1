@@ -19,7 +19,7 @@
 - Metody : GET POST PUT DELETE
 - Znajduje się on w Dockerze
 - Wysyłanie nowych postów do MongoDB 
-- Produkuje nowy Post 
+- Produkuje nowy Post który wysyła do kafki
 
 ## Pod Projekty:
 
