@@ -14,7 +14,7 @@
 - Postman
 - Conduktor
 
-## Project that uses restAPI Blogger: 
+## Project uses: 
 
 |URL   |BODY   | METHOD   |
 | ------------ | ------------ | ------------ |
@@ -28,7 +28,7 @@
 - Sending new posts to MongoDB 
 - Produces new posts which send to Kafka
 
-## Pod Projekty:
+## Project that uses restAPI Blogger:
 
 - [HttpClient API](https://github.com/MstrJ/HttpClient-restApi1)
 - [Kafka Consumer ASP.NET Core Web API](https://github.com/MstrJ/KafkaConsumerAPI)
