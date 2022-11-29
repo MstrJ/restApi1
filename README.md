@@ -14,8 +14,8 @@
 
 - [MongoDBCompass](https://www.mongodb.com/try/download/compass) (neccesary)
 - [Ubuntu](https://ubuntu.com/) (neccesary)
-- Postman
-- Conduktor
+- [Postman](https://www.postman.com/)
+- [Conduktor](https://www.conduktor.io/)
 
 ## Project presents: 
 
