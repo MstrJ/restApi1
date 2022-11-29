@@ -23,7 +23,7 @@
 | ------------ | ------------ | ------------ |
 | /api/Post  | - | GET  |
 | /api/Post/{id}  | id  | GET  |
-| /api/Post/  |  title, content |  POST |
+| /api/Post  |  title, content |  POST |
 | /api/Post  |  id, content |  PUT |
 | /api/Post/{id}  |  id |  DELETE |
 
