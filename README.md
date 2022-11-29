@@ -1,7 +1,7 @@
 # RestAPI Blogger
-##### Mój pierwszy projekt związany z restAPI 🐧👌
+##### My first Project bound up with restAPI 🐧👌
 
-## Projekt wykorzystuje: 
+## Project uses: 
 
 - .Net 6
 - ASP.NET Core Web API
@@ -9,26 +9,12 @@
 - MongoDB
 - Kafka
 
-## Programy pomocnicze: 
+## Helpful programmes: 
     
 - Postman
 - Conduktor
 
-## Projekt przedstawia: 
-
-- Metody : GET POST PUT DELETE
-- Znajduje się on w Dockerze
-- Wysyłanie nowych postów do MongoDB 
-- Produkuje nowy Post który wysyła do kafki
-
-## Pod Projekty:
-
-- [HttpClient API](https://github.com/MstrJ/HttpClient-restApi1)
-- [Kafka Consumer ASP.NET Core Web API](https://github.com/MstrJ/KafkaConsumerAPI)
-- [Kafka Consumer Console](https://github.com/MstrJ/KafkaConsumerConsole)
-
-
-# Blogger
+## Project that uses restAPI Blogger: 
 
 |URL   |BODY   | METHOD   |
 | ------------ | ------------ | ------------ |
@@ -37,4 +23,16 @@
 | /api/Post/  |  title, content |  POST |
 | /api/Post  |  id, content |  PUT |
 | /api/Post/{id}  |  id |  DELETE |
+
+- It's in the Docker
+- Sending new posts to MongoDB 
+- Produces new posts which send to Kafka
+
+## Pod Projekty:
+
+- [HttpClient API](https://github.com/MstrJ/HttpClient-restApi1)
+- [Kafka Consumer ASP.NET Core Web API](https://github.com/MstrJ/KafkaConsumerAPI)
+- [Kafka Consumer Console](https://github.com/MstrJ/KafkaConsumerConsole)
+
+<!--INSTALATION  -->
 
