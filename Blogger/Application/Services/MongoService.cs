@@ -76,7 +76,7 @@ namespace Application.Services
             };
 
             using var producer = new ProducerBuilder<Null, string>(config).Build();
-            var result = await producer.ProduceAsync("addedPosts", new Message<Null, string> { Value = serializePost });
+            var result = await producer.ProduceAsync("addedPosts", new Message<Null, string> {Value = serializePost });
 
             //await Task.Run(() => result);
             //List<Task> tasks = new List<Task> { result };

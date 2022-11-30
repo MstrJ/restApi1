@@ -8,11 +8,20 @@
      - 5000:80
 
   mongo:
+    # nazwa mongo moja nazwa image
     image: mongo:latest
     volumes:
     - ./db-data/mongo/:/data/db
     ports:
     - 27017:27017
+
+  kafkaConsumer:
+    build: ../../KafkaConsumerAPI
+    image: kafkaconsumerapi:latest
+    container_name: kafkaconsumerapi
+    ports:
+      - 6000:70
+    
     
   zookeeper:
     # image: confluentinc/cp-zookeeper:latest
