@@ -18,10 +18,9 @@
   kafkaConsumer:
     build: ../../KafkaConsumerAPI
     image: kafkaconsumerapi:latest
-    container_name: kafkaconsumerapi
+    container_name: kafkaConsumerAPI
     ports:
       - 6000:70
-    
     
   zookeeper:
     # image: confluentinc/cp-zookeeper:latest
